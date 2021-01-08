@@ -645,7 +645,7 @@ public class MethodCallHandlerImpl implements MethodCallHandler, StateProvider {
         getTransceivers(peerConnectionId, result);
         break;
       }
-      case "stopAudioManger":
+      case "stopAudioManager":
         if (rtcAudioManager == null) {
           rtcAudioManager = RTCAudioManager.create(context);
         }
