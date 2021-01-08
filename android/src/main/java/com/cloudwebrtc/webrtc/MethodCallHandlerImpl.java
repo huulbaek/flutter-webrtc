@@ -18,6 +18,7 @@ import com.cloudwebrtc.webrtc.utils.ConstraintsArray;
 import com.cloudwebrtc.webrtc.utils.ConstraintsMap;
 import com.cloudwebrtc.webrtc.utils.EglUtils;
 import com.cloudwebrtc.webrtc.utils.ObjectType;
+import com.cloudwebrtc.webrtc.utils.RTCAudioManager;
 
 import org.webrtc.AudioTrack;
 import org.webrtc.DefaultVideoDecoderFactory;
@@ -84,8 +85,6 @@ public class MethodCallHandlerImpl implements MethodCallHandler, StateProvider {
 
     void setSpeakerphoneOn(boolean on);
 
-    void stop();
-
   }
 
   static public final String TAG = "FlutterWebRTCPlugin";
@@ -109,6 +108,7 @@ public class MethodCallHandlerImpl implements MethodCallHandler, StateProvider {
   private GetUserMediaImpl getUserMediaImpl;
 
   private final AudioManager audioManager;
+  private RTCAudioManager rtcAudioManager;
 
   private AudioDeviceModule audioDeviceModule;
 
@@ -646,7 +646,7 @@ public class MethodCallHandlerImpl implements MethodCallHandler, StateProvider {
         break;
       }
       case "stopAudioManger":
-        audioManager.stop();
+        rtcAudioManager.stop();
         result.success(null);
         break;
       default:
