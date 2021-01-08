@@ -84,6 +84,7 @@ public class MethodCallHandlerImpl implements MethodCallHandler, StateProvider {
 
     void setSpeakerphoneOn(boolean on);
 
+    void stop();
 
   }
 
@@ -644,6 +645,10 @@ public class MethodCallHandlerImpl implements MethodCallHandler, StateProvider {
         getTransceivers(peerConnectionId, result);
         break;
       }
+      case "stopAudioManger":
+        audioManager.stop();
+        result.success(null);
+        break;
       default:
         result.notImplemented();
         break;
