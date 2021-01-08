@@ -646,6 +646,9 @@ public class MethodCallHandlerImpl implements MethodCallHandler, StateProvider {
         break;
       }
       case "stopAudioManger":
+        if (rtcAudioManager == null) {
+          rtcAudioManager = RTCAudioManager.create(context);
+        }
         rtcAudioManager.stop();
         result.success(null);
         break;
