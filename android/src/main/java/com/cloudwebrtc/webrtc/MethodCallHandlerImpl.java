@@ -52,7 +52,7 @@ import org.webrtc.SessionDescription.Type;
 import org.webrtc.VideoTrack;
 import org.webrtc.audio.AudioDeviceModule;
 import org.webrtc.audio.JavaAudioDeviceModule;
-import org.webrtc.audio.RTCAudioManager;
+import com.cloudwebrtc.webrtc.utils.RTCAudioManager;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
