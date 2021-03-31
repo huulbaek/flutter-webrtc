@@ -293,6 +293,7 @@ public class RTCAudioManager {
     ThreadUtils.checkIsOnMainThread();
     if (amState != AudioManagerState.RUNNING) {
       Log.e(TAG, "Trying to stop AudioManager in incorrect state: " + amState);
+      bluetoothManager.stop();
       return;
     }
     amState = AudioManagerState.UNINITIALIZED;
