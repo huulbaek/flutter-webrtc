@@ -19,6 +19,14 @@ class Helper {
   static Future<List<MediaDeviceInfo>> get cameras =>
       enumerateDevices('videoinput');
 
+  /// Return the available audiooutputs
+  ///
+  /// Note: Make sure to call this gettet after
+  /// navigator.mediaDevices.getUserMedia(), otherwise the devices will not be
+  /// listed.
+  static Future<List<MediaDeviceInfo>> get audiooutputs =>
+      enumerateDevices('audiooutput');
+
   /// To select a a specific camera, you need to set constraints
   /// eg.
   /// constraints = {
@@ -109,6 +117,6 @@ class Helper {
         throw 'Unable to MediaStreamTrack::setMicrophoneMute: ${e.message}';
       }
     }
-    track.enabled = mute;
+    track.enabled = !mute;
   }
 }

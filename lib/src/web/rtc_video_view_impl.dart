@@ -10,7 +10,7 @@ class RTCVideoView extends StatefulWidget {
     Key key,
     this.objectFit = RTCVideoViewObjectFit.RTCVideoViewObjectFitContain,
     this.mirror = false,
-    this.filterQuality = FilterQuality.low // filterQuality is not used in web yet
+    this.filterQuality = FilterQuality.low,
   })  : assert(objectFit != null),
         assert(mirror != null),
         assert(filterQuality != null),
@@ -20,7 +20,6 @@ class RTCVideoView extends StatefulWidget {
   final RTCVideoViewObjectFit objectFit;
   final bool mirror;
   final FilterQuality filterQuality;
-
   @override
   _RTCVideoViewState createState() => _RTCVideoViewState();
 }
