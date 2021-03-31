@@ -84,8 +84,6 @@ public class MethodCallHandlerImpl implements MethodCallHandler, StateProvider {
 
     void setSpeakerphoneOn(boolean on);
 
-    void stio();
-
   }
 
   static public final String TAG = "FlutterWebRTCPlugin";
