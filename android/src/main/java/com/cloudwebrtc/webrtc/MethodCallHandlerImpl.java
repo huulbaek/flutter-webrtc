@@ -52,7 +52,6 @@ import org.webrtc.SessionDescription.Type;
 import org.webrtc.VideoTrack;
 import org.webrtc.audio.AudioDeviceModule;
 import org.webrtc.audio.JavaAudioDeviceModule;
-import com.cloudwebrtc.webrtc.utils.RTCAudioManager;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -110,7 +109,7 @@ public class MethodCallHandlerImpl implements MethodCallHandler, StateProvider {
   private GetUserMediaImpl getUserMediaImpl;
 
   private final AudioManager audioManager;
-  private RTCAudioManager rtcAudioManager;
+
   private AudioDeviceModule audioDeviceModule;
 
   private Activity activity;
@@ -646,13 +645,6 @@ public class MethodCallHandlerImpl implements MethodCallHandler, StateProvider {
         getTransceivers(peerConnectionId, result);
         break;
       }
-      case "stopAudioManager":
-        if (rtcAudioManager == null) {
-          rtcAudioManager = RTCAudioManager.create(context);
-        }
-        rtcAudioManager.stop();
-        result.success(null);
-        break;
       default:
         result.notImplemented();
         break;
